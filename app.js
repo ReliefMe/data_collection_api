@@ -24,11 +24,9 @@ app.post("/", (req, res) => {
         medical_history : req.body.medical_history,
         data_collected_using_smartphone : req.body.data_collected_using_smartphone,
     });
-    console.log(new_user);
     new_user.save()
         .then((user) => res.send(user))
         .catch((err) => console.log(err))
-    console.log("heyyyy {}", new_user);
 
 })
 app.listen(3000, () => {
