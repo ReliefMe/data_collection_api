@@ -12,7 +12,7 @@ const db = "mongodb+srv://mnaufil:<password>@cluster0-wuuzb.mongodb.net/covid19?
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log("connected to mongodb");
 });
-app.post("/", (req, res) => {
+app.post("/add_user", (req, res) => {
     let new_user = new User({
         research_consent: req.body.research_consent,
         condition : req.body.condition,
