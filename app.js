@@ -12,7 +12,7 @@ app.use(body_parser.urlencoded({
 }));
 app.use(file_upload());
 
-const db = "mongodb+srv://mnaufil:<password>@cluster0-wuuzb.mongodb.net/covid19?retryWrites=true&w=majority";
+const db = "mongodb+srv://mnaufil:virufy123@cluster0-wuuzb.mongodb.net/covid19?retryWrites=true&w=majority";
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log("connected to mongodb");
