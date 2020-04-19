@@ -28,6 +28,12 @@ let user_schema = new Schema({
     data_collected_using_smartphone: {
         type: String
     },
+    cough: {
+        type: String
+    },
+    breath: {
+        type: String
+    },
     time : { 
         type : Date, 
         default: Date.now 
