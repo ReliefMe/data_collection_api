@@ -7,8 +7,8 @@ let user_schema = new Schema({
     condition: {
         type: String,
     },
-    age_group: {
-        type: String,
+    age: {
+        type: Number,
     },
     gender: {
         type: String
@@ -28,10 +28,10 @@ let user_schema = new Schema({
     data_collected_using_smartphone: {
         type: String
     },
-    cough: {
+    cough_audio: {
         type: String
     },
-    breath: {
+    breath_audio: {
         type: String
     },
     timestamp : { 

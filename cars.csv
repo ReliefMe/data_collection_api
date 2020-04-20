@@ -1,0 +1,10 @@
+"timestamp","_id","research_consent","condition","age","gender","patient_id","smoker","reported_symptoms","medical_history","data_collected_using_smartphone","cough","breath","__v"
+"2020-04-20T12:10:25.272Z","5e9d9137d72de11547890eb5","no","negative",,"female","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T12:16:16.316Z","5e9d92990fea9815fb060725","no","negative",,"female","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T13:01:28.580Z","5e9d9d6492d2481c0c49f21e","no","negative",,"female","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T13:01:28.580Z","5e9d9d6c92d2481c0c49f21f","no","negative",,"female","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T13:01:28.580Z","5e9d9d7092d2481c0c49f220","no","negative",,"male","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T14:02:17.508Z","5e9dab7bd32c1b254821b9e8","no","negative",,"male","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T14:04:49.714Z","5e9dac5296a1c025d7966155","no","negative",,"male","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T14:07:09.850Z","5e9dac98d1a3cb2636f6e056","no","negative",,"male","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
+"2020-04-20T14:07:57.984Z","5e9dacc4f91f8a266a6032ca","no","negative",23,"male","1234","no","Shortness of breath","Asthma or chronic lung disease ","yes","hello.mp3","hello.mp3",0
