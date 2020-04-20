@@ -12,7 +12,7 @@ app.use(body_parser.urlencoded({
 }));
 app.use(file_upload())
 
-const db = "mongodb+srv://mnaufil:<password>@cluster0-wuuzb.mongodb.net/covid19?retryWrites=true&w=majority";
+const db = "mongodb+srv://mnaufil:virufy@cluster0-wuuzb.mongodb.net/covid19?retryWrites=true&w=majority";
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log("connected to mongodb");
@@ -64,6 +64,18 @@ app.post("/add_user", (req, res) => {
         })
     })
 
+    app.get("/get_users/by_date/:date", (req, res) => {
+        // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
+        let date_array = req.params.date.split("-");
+        let day = parseInt(date_array[2]);
+        // console.log(`${date_array[0]}-${date_array[1]}-${(day+1)}`);
+        User.find({timestamp: {"$gte": new Date(`${req.params.date}T00:00:00.000Z`),
+        "$lt": new Date(`${date_array[0]}-${date_array[1]}-${(day+1)}T00:00:00.000Z`)}}, function (err, users) {
+          if (err) return handleError(err);
+          // Prints "Space Ghost is a talk show host".
+          res.send({"users":users})
+        });
+    })
     app.listen(3000, () => {
         console.log("I am up")
     })

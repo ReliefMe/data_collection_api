@@ -34,9 +34,9 @@ let user_schema = new Schema({
     breath: {
         type: String
     },
-    time : { 
+    timestamp : { 
         type : Date, 
-        default: Date.now 
+        default: new Date 
     }
 });
 module.exports = mongoose.model("User",user_schema)
