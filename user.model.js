@@ -1,9 +1,6 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 let user_schema = new Schema({
-    research_consent: {
-        type: String
-    },
     condition: {
         type: String,
     },

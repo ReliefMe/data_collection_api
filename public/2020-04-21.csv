@@ -1,0 +1,5 @@
+"timestamp","_id","condition","age","gender","patient_id","smoker","reported_symptoms","medical_history","data_collected_using_smartphone"
+"2020-04-21T07:31:50.486Z","5e9ea16eb2bc9e245c745b92","negative",41,"female","34234","yes","Shortness of breath","Asthma or chronic lung disease ","yes"
+"2020-04-21T07:31:50.486Z","5e9ea174b2bc9e245c745b93","positive",41,"female","34234","yes","Shortness of breath","Asthma or chronic lung disease ","yes"
+"2020-04-21T07:31:50.486Z","5e9ea177b2bc9e245c745b94","positive",41,"male","34234","yes","Shortness of breath","Asthma or chronic lung disease ","yes"
+"2020-04-21T07:31:50.486Z","5e9ea17ab2bc9e245c745b95","positive",41,"male","12345","yes","Shortness of breath","Asthma or chronic lung disease ","yes"

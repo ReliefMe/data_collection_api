@@ -6,6 +6,7 @@ let body_parser = require("body-parser")
 let User = require("./user.model")
 const fs = require('fs');
 const { Parser } = require('json2csv');
+app.use(express.static('public'))
 
 app.use(express.json()); // Make sure it comes back as json
 app.use(body_parser.json())
@@ -22,7 +23,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
 
 app.post("/add_user", (req, res) => {
     let new_user = new User({
-        research_consent: req.body.research_consent,
         condition: req.body.condition,
         age: req.body.age,
         gender: req.body.gender,
@@ -31,21 +31,25 @@ app.post("/add_user", (req, res) => {
         reported_symptoms: req.body.reported_symptoms,
         medical_history: req.body.medical_history,
         data_collected_using_smartphone: req.body.data_collected_using_smartphone,
-        cough_audio: req.files.cough,
-        breath_audio : req.files.breath
+        cough_audio: req.files.cough_audio.name,
+        breath_audio : req.files.breath_audio.name
     });
+    let audio_format = req.files.breath_audio.name;
+    audio_format = audio_format.split(".")[1];
+    new_user.cough_audio = req.body.patient_id + "." + audio_format;
+    new_user.breath_audio = req.body.patient_id + "." + audio_format;
     console.log(new_user);
-    let cough = req.files.cough;
-    let breath = req.files.breath;
+    let cough = req.files.cough_audio;
+    let breath = req.files.breath_audio;
     new_user.save()
         .then((user) => {
-            cough.mv("./cough/" + req.body.patient_id, function (err, result) {
+            cough.mv("./cough/" + new_user.cough_audio, function (err, result) {
                 if (err)
                     res.send({
                         message: "An error occured"
                     })
                 else {
-                    breath.mv("./breath/" + req.body.patient_id, function (err, result) {
+                    breath.mv("./breath/" + new_user.breath_audio, function (err, result) {
                         if (err)
                             res.send({
                                 message: "An error occured"
@@ -70,7 +74,6 @@ app.get("/get_users/by_date/:date", (req, res) => {
     // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
     let date_array = req.params.date.split("-");
     let day = parseInt(date_array[2]);
-    // console.log(`${date_array[0]}-${date_array[1]}-${(day+1)}`);
     User.find({
         timestamp: {
             "$gte": new Date(`${req.params.date}T00:00:00.000Z`),
@@ -83,36 +86,7 @@ app.get("/get_users/by_date/:date", (req, res) => {
     });
 })
 
-app.get("/get_users/by_date/csv/:date", (req, res) => {
-    // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
-    let date_array = req.params.date.split("-");
-    let day = parseInt(date_array[2]);
-    // console.log(`${date_array[0]}-${date_array[1]}-${(day+1)}`);
-    User.find({
-        timestamp: {
-            "$gte": new Date(`${req.params.date}T00:00:00.000Z`),
-            "$lt": new Date(`${date_array[0]}-${date_array[1]}-${(day + 1)}T00:00:00.000Z`)
-        }
-    }, function (err, users) {
-        if (err) res.send({message:"An error occured"});
-        // Prints "Space Ghost is a talk show host".
-        // res.send({ "users": users })
-        console.log(users)
-        let fields = ["timestamp","_id","research_consent","condition","age","gender","patient_id","smoker","reported_symptoms","medical_history","data_collected_using_smartphone","cough","breath","__v"];
-        const parser = new Parser({
-            fields,
-        });
-        
-        let csv = parser.parse(users);
-        console.log(csv);
-        fs.writeFile('cars.csv', csv, function(err) {
-            if (err) throw err;
-            console.log('cars file saved');
-          });
-        res.send({result:csv});
-    });
-});
-    
+
 app.listen(3000, () => {
     console.log("I am up")
 })
