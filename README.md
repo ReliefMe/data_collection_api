@@ -15,15 +15,16 @@ Asks for following urlencoded values:
 8) data_collected_using_smartphone
 9) cough_audio
 10) breath_audio
-
+![Screenshot](https://imgur.com/ZW2SPgv.png)
 ## For Deep learning researchers
 #### mydomain.com/2020-04-21.csv 
 Get request
 Downloads CSV file containing patients of 21st April
-
-#### mydomain.com/get_users/by_date/2020-04-21
+![Screenshot](https://imgur.com/3lrE43O)
+![Screenshot](https://imgur.com/jtIcmxi.png)
+#### mydomain.com/get_users/by_date/2020-04-20
 Get request
-Sends a json response back containing patients of 21st April
-
+Sends a json response back containing patients of 20th April
+![Screenshot](https://imgur.com/CMgsiC2.png)
 #### background_service.js 
 Generates a new csv file after every few minutes in background and overwrites the previous csv file from the same date. So that deep learning researches always get the latest csv file when send a get request to mydomain.com/2020-04-21.csv
