@@ -20,7 +20,7 @@ Asks for following urlencoded values:
 #### mydomain.com/2020-04-21.csv 
 Get request
 Downloads CSV file containing patients of 21st April
-![Screenshot](https://imgur.com/3lrE43O)
+![Screenshot](https://imgur.com/3lrE43O.png)
 ![Screenshot](https://imgur.com/jtIcmxi.png)
 #### mydomain.com/get_users/by_date/2020-04-20
 Get request
