@@ -35,11 +35,9 @@ var j = schedule.scheduleJob({minute: 45}, function(){
         });
         
         let csv = parser.parse(users);
-        // console.log(csv);
         fs.writeFile(`public/${date}.csv`, csv, function(err) {
             if (err) throw err;
             console.log('file saved');
           });
-        // res.sen
     });
 });

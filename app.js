@@ -71,7 +71,6 @@ app.post("/add_user", (req, res) => {
 })
 
 app.get("/get_users/by_date/:date", (req, res) => {
-    // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
     let date_array = req.params.date.split("-");
     let day = parseInt(date_array[2]);
     User.find({
@@ -81,7 +80,6 @@ app.get("/get_users/by_date/:date", (req, res) => {
         }
     }, function (err, users) {
         if (err) res.send({message:"An error occured"});
-        // Prints "Space Ghost is a talk show host".
         res.send({ "users": users })
     });
 })
