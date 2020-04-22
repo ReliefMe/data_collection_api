@@ -5,19 +5,18 @@
 Post request
 Asks for following urlencoded values:
 
-1) condition
-2) age
-3) gender
-4) patient_id
-5) smoker
-6) reported_symptoms
-7) medical_history
-8) data_collected_using_smartphone
-9) cough_audio
-10) breath_audio
-11) finger_video
-12) research_consent
-13) patient_location
+1) condition   | String
+2) age | Number
+3) gender | String
+4) patient_id | String
+5) smoker | String
+6) reported_symptoms | String
+7) medical_history | String
+8) cough_audio | file
+9) breath_audio | file
+10) finger_video | file
+11) research_consent | String
+12) patient_location | String
 ![Screenshot](https://imgur.com/ZW2SPgv.png)
 ## For Deep learning researchers
 #### http://139.59.0.87:3000/2020-04-21.csv 
