@@ -25,9 +25,6 @@ let user_schema = new Schema({
     medical_history: {
         type: String
     },
-    data_collected_using_smartphone: {
-        type: String
-    },
     cough_audio: {
         type: String
     },

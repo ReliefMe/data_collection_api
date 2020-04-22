@@ -31,7 +31,6 @@ app.post("/add_user", (req, res) => {
         smoker: req.body.smoker,
         reported_symptoms: req.body.reported_symptoms,
         medical_history: req.body.medical_history,
-        data_collected_using_smartphone: req.body.data_collected_using_smartphone,
         cough_audio: req.files.cough_audio.name,
         breath_audio : req.files.breath_audio.name,
         finger_video: req.files.finger_video.name,
