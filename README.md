@@ -15,6 +15,9 @@ Asks for following urlencoded values:
 8) data_collected_using_smartphone
 9) cough_audio
 10) breath_audio
+11) finger_video
+12) research_consent
+13) patient_location
 ![Screenshot](https://imgur.com/ZW2SPgv.png)
 ## For Deep learning researchers
 #### mydomain.com/2020-04-21.csv 
