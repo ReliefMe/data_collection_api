@@ -17,6 +17,7 @@ Asks for following urlencoded values:
 10) finger_video | file
 11) research_consent | String
 12) patient_location | String
+13) Country | String
 ![Screenshot](https://imgur.com/ZW2SPgv.png)
 ## For Deep learning researchers
 #### http://139.59.0.87:3000/2020-04-21.csv 

@@ -25,6 +25,7 @@ app.post("/add_user", (req, res) => {
     let new_user = new User({
         research_consent: req.body.research_consent,
         condition: req.body.condition,
+        condition: req.body.country,
         age: req.body.age,
         gender: req.body.gender,
         patient_id: req.body.patient_id,
@@ -37,7 +38,7 @@ app.post("/add_user", (req, res) => {
         patient_location: req.body.patient_location
     });
     let audio_format = req.files.breath_audio.name;
-    audio_format = audio_format.split(".")[1];
+    audio_format = audio_format.split(".")[2];
     let video_format = req.files.finger_video.name;
     video_format = video_format.split(".")[1];
     new_user.cough_audio = req.body.patient_id + "." + audio_format;
