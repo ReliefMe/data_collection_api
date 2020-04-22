@@ -29,7 +29,7 @@ var j = schedule.scheduleJob({minute: 45}, function(){
     }, function (err, users) {
         if (err) console.log("An error occured");
         console.log(users)
-        let fields = ["timestamp","_id","research_consent","condition","age","gender","patient_id","smoker","reported_symptoms","medical_history","data_collected_using_smartphone","cough_audio","breath_audio","finger_video"];
+        let fields = ["timestamp","_id","research_consent","condition","age","gender","patient_id","smoker","reported_symptoms","medical_history","data_collected_using_smartphone","cough_audio","breath_audio","finger_video","patient_location"];
         const parser = new Parser({
             fields,
         });

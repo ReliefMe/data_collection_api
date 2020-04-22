@@ -37,6 +37,9 @@ let user_schema = new Schema({
     finger_video: {
         type: String
     },
+    patient_location: {
+        type: String
+    },
     timestamp : { 
         type : Date, 
         default: new Date 

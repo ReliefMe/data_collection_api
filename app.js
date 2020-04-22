@@ -34,7 +34,8 @@ app.post("/add_user", (req, res) => {
         data_collected_using_smartphone: req.body.data_collected_using_smartphone,
         cough_audio: req.files.cough_audio.name,
         breath_audio : req.files.breath_audio.name,
-        finger_video: req.files.finger_video.name
+        finger_video: req.files.finger_video.name,
+        patient_location: req.body.patient_location
     });
     let audio_format = req.files.breath_audio.name;
     audio_format = audio_format.split(".")[1];
