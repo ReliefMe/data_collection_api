@@ -5,13 +5,13 @@
 Post request
 Asks for following urlencoded values:
 
-1) condition   | String
+1) condition | String
 2) age | Number
 3) gender | String
 4) patient_id | String
 5) smoker | String
-6) reported_symptoms | String
-7) medical_history | String
+6) reported_symptoms | Array
+7) medical_history | Array
 8) cough_audio | file
 9) breath_audio | file
 10) finger_video | file
