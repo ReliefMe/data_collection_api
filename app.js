@@ -23,6 +23,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
 
 app.post("/add_user", (req, res) => {
     let new_user = new User({
+        research_consent: req.body.research_consent,
         condition: req.body.condition,
         age: req.body.age,
         gender: req.body.gender,
@@ -32,15 +33,21 @@ app.post("/add_user", (req, res) => {
         medical_history: req.body.medical_history,
         data_collected_using_smartphone: req.body.data_collected_using_smartphone,
         cough_audio: req.files.cough_audio.name,
-        breath_audio : req.files.breath_audio.name
+        breath_audio : req.files.breath_audio.name,
+        finger_video: req.files.finger_video.name
     });
     let audio_format = req.files.breath_audio.name;
     audio_format = audio_format.split(".")[1];
+    let video_format = req.files.finger_video.name;
+    video_format = video_format.split(".")[1];
     new_user.cough_audio = req.body.patient_id + "." + audio_format;
     new_user.breath_audio = req.body.patient_id + "." + audio_format;
+    new_user.finger_video = req.body.patient_id + "." + video_format;
     console.log(new_user);
     let cough = req.files.cough_audio;
     let breath = req.files.breath_audio;
+    let finger_video = req.files.cough_audio;
+
     new_user.save()
         .then((user) => {
             cough.mv("./cough/" + new_user.cough_audio, function (err, result) {
@@ -55,9 +62,16 @@ app.post("/add_user", (req, res) => {
                                 message: "An error occured"
                             })
                         else
-                            res.send({
-                                message: "user added"
-                            })
+                        finger_video.mv("./finger_video/" + new_user.finger_video, function (err, result) {
+                            if (err)
+                                res.send({
+                                    message: "An error occured"
+                                })
+                            else
+                                res.send({
+                                    message: "user added"
+                                })
+                        })
                     })
                 }
             })

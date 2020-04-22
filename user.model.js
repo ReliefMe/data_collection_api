@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 let user_schema = new Schema({
+    research_consent: {
+        type: String
+    },
     condition: {
         type: String,
     },
@@ -29,6 +32,9 @@ let user_schema = new Schema({
         type: String
     },
     breath_audio: {
+        type: String
+    },
+    finger_video: {
         type: String
     },
     timestamp : { 
