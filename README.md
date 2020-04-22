@@ -1,7 +1,7 @@
 # Virufy API
 
 ## For Hospital
-#### mydomain.com/add_user
+#### http://139.59.0.87:3000/add_user
 Post request
 Asks for following urlencoded values:
 
@@ -20,12 +20,12 @@ Asks for following urlencoded values:
 13) patient_location
 ![Screenshot](https://imgur.com/ZW2SPgv.png)
 ## For Deep learning researchers
-#### mydomain.com/2020-04-21.csv 
+#### http://139.59.0.87:3000/2020-04-21.csv 
 Get request
 Downloads CSV file containing patients of 21st April
 ![Screenshot](https://imgur.com/3lrE43O.png)
 ![Screenshot](https://imgur.com/jtIcmxi.png)
-#### mydomain.com/get_users/by_date/2020-04-20
+#### http://139.59.0.87:3000/get_users/by_date/2020-04-20
 Get request
 Sends a json response back containing patients of 20th April
 ![Screenshot](https://imgur.com/CMgsiC2.png)
