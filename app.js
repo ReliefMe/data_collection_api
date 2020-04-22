@@ -25,29 +25,38 @@ app.post("/add_user", (req, res) => {
     let new_user = new User({
         research_consent: req.body.research_consent,
         condition: req.body.condition,
-        condition: req.body.country,
+        country: req.body.country,
+        patient_location: req.body.location,
         age: req.body.age,
-        gender: req.body.gender,
         patient_id: req.body.patient_id,
+        gender: req.body.gender,
         smoker: req.body.smoker,
         reported_symptoms: req.body.reported_symptoms,
         medical_history: req.body.medical_history,
         cough_audio: req.files.cough_audio.name,
-        breath_audio : req.files.breath_audio.name,
-        finger_video: req.files.finger_video.name,
-        patient_location: req.body.patient_location
+        breath_audio: req.files.breath_audio.name,
+        finger_video: req.files.video
     });
-    let audio_format = req.files.breath_audio.name;
-    audio_format = audio_format.split(".")[2];
-    let video_format = req.files.finger_video.name;
-    video_format = video_format.split(".")[1];
+    console.log(req);
+    console.log(new_user);
+    let audio_format = req.files.cough_audio.name;
+    audio_format = audio_format.split(".").pop();
+    try {
+    let video_format = req.files.video.name;
+    video_format = video_format.split(".").pop();
+    new_user.finger_video = req.body.patient_id + "." + video_format;
+    }
+    catch(err){
+        console.log("No video file attached")
+    };
     new_user.cough_audio = req.body.patient_id + "." + audio_format;
     new_user.breath_audio = req.body.patient_id + "." + audio_format;
-    new_user.finger_video = req.body.patient_id + "." + video_format;
+
+
     console.log(new_user);
     let cough = req.files.cough_audio;
     let breath = req.files.breath_audio;
-    let finger_video = req.files.cough_audio;
+    let finger_video = req.files.video;
 
     new_user.save()
         .then((user) => {
@@ -63,6 +72,7 @@ app.post("/add_user", (req, res) => {
                                 message: "An error occured"
                             })
                         else
+                        try {
                         finger_video.mv("./finger_video/" + new_user.finger_video, function (err, result) {
                             if (err)
                                 res.send({
@@ -72,11 +82,16 @@ app.post("/add_user", (req, res) => {
                                 res.send({
                                     message: "user added"
                                 })
-                        })
+                        
+                    })}
+                    catch(err) {
+                        res.send({message: "User added"})
+                    }
+                            })
+                        }
                     })
-                }
-            })
-        })
+                })
+                        
         .catch((err) => {
             console.log(err);
             res.send({
