@@ -52,7 +52,7 @@ app.post("/add_user", (req, res) => {
     console.log(new_user);
     let cough = req.files.cough_audio;
     let breath = req.files.breath_audio;
-    let finger_video = req.files.video;
+    let finger_video = req.files.finger_video;
 
     new_user.save()
         .then((user) => {
