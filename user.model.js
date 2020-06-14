@@ -1,17 +1,8 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 let user_schema = new Schema({
-    research_consent: {
-        type: String
-    },
-    country: {
-        type: String
-    },
     patient_id : {
         type: String
-    },
-    condition: {
-        type: String,
     },
     age: {
         type: Number,
@@ -35,9 +26,6 @@ let user_schema = new Schema({
         type: String
     },
     finger_video: {
-        type: String
-    },
-    patient_location: {
         type: String
     },
     timestamp : { 

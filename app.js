@@ -23,10 +23,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
 
 app.post("/add_user", (req, res) => {
     let new_user = new User({
-        research_consent: req.body.research_consent,
-        condition: req.body.condition,
-        country: req.body.country,
-        patient_location: req.body.location,
         age: req.body.age,
         patient_id: req.body.patient_id,
         gender: req.body.gender,
