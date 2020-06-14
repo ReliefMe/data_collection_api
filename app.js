@@ -38,7 +38,7 @@ app.post("/add_user", (req, res) => {
     let audio_format = req.files.cough_audio.name;
     audio_format = audio_format.split(".").pop();
     try {
-    let video_format = req.files.video.name;
+    let video_format = req.files.finger_video.name;
     video_format = video_format.split(".").pop();
     new_user.finger_video = req.body.patient_id + "." + video_format;
     }
