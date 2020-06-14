@@ -81,7 +81,7 @@ app.post("/add_user", (req, res) => {
                         
                     })}
                     catch(err) {
-                        res.send({message: "User added"})
+                        res.send({message: "User added without video"})
                     }
                             })
                         }
